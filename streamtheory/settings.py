@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-lornavav-the-big-stream-gh0rtn8ftd.us2.codeanyapp.com', 'the-big-stream-theory.herokuapp.com', 'localhost']
+    '8000-lornavav-the-big-stream-gh0rtn8ftd.us2.codeanyapp.com', 'the-big-stream-theory-92a5f2837220.herokuapp.com', 'localhost']
 
 
 # Application definition
