@@ -6,6 +6,9 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 
 class Category(models.Model):
+    """
+    Category model
+    """
     name = models.CharField(max_length=50)
 
     def __str__(self):
@@ -13,6 +16,9 @@ class Category(models.Model):
 
 
 class Post(models.Model):
+    """
+    Post model for admins to create articles for the website
+    """
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
