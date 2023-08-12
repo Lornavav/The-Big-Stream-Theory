@@ -9,7 +9,10 @@ class Category(models.Model):
     """
     Category model
     """
+    class Meta:
+        verbose_name_plural = 'Categories'
     name = models.CharField(max_length=50)
+    category_image = CloudinaryField('image', default='placeholder')
 
     def __str__(self):
         return self.name
