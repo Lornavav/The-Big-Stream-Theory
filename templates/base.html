@@ -8,12 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>The Big Stream Theory</title>
-
+    <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
+    <!--Font Awesone-->
+    <script src="https://kit.fontawesome.com/92dd2e7f78.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -31,6 +33,30 @@
                 </li>
             </ul>
     </nav>
+
+    <main>
+        {% block content %}
+        {% endblock content %}
+    </main>
+
+    <footer class="py-3 bg-light fixed-bottom">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 mx-auto text-center">
+                    <p class="contact-us m-0 text-center"><i class="fa-regular fa-envelope">
+                    </i>hello@thebigstreamtheory.com
+                    </p>
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener"
+                            aria-label="Vist our Instagram page (opens in new tab)"><i class="fab fa-instagram ms-3"></i></a>
+                    <a href="https://twitter.com/" target="_blank" rel="noopener"
+                            aria-label="Vist our Twitter page (opens in new tab)"><i class="fab fa-twitter-square ms-3"></i></a>
+                    
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener"
+                            aria-label="Vist our Facebook page (opens in new tab)"><i class="fab fa-facebook-square ms-3"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
