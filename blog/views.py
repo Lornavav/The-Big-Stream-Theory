@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import generic, View
-from .models import Post
+from .models import Post, Category
 
 
 class PostList(generic.ListView):
@@ -9,3 +9,10 @@ class PostList(generic.ListView):
         status=1).order_by('-created_on')
     template_name = 'articles.html'
     paginate_by = 6
+
+
+class CategoryList(generic.ListView):
+    
+    model = Category
+    template_name = 'index.html'
+    paginate_by = 4
