@@ -2,13 +2,13 @@
 
 {% block content %}
 
-<div class="container-fluid">
+<div class="container-fluid bg-dark text-white">
     <div class="row">
 
         <!--Display Articles-->
-        <div class="col-12 mt-3 center">
+        <div class="col-12 mt-3 center bg-dark text-white">
             <div class="row">
-            {% for post in post_list %} 
+                {% for post in post_list %} 
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
@@ -28,11 +28,11 @@
                         </div>
                     </div>
                 </div>
-            {% if forloop.counter|divisibleby:1 %}
+                {% if forloop.counter|divisibleby:1 %}
             </div>
             <div class="row">
-            {% endif %} 
-            {% endfor %}
+                {% endif %} 
+                {% endfor %}
             </div>
         </div>
     </div>
