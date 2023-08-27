@@ -50,9 +50,22 @@
         </div>
         <div class="col-lg-6">
             <div class="card">
-                <h2>Leave a Comment</h2>
                 <div class="card-body">
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    {% if commented %}
+                    <div class="alert alert-success" role="alert">
+                        Your comment is awaiting approval
+                    </div>
+                    {% else %}
+                    {% if user.is_authenticated %}
+                    <h2>Leave a Comment:</h2>
+                    <p>Posting as: {{ user.username }}</p>
+                    <form method="post" style="margin-top: 1.3em;">
+                        {{ comment_form | crispy }}
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                    </form>
+                    {% endif %}
+                    {% endif %}
                 </div>
             </div>
         </div>
