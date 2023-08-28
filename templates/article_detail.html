@@ -7,10 +7,11 @@
 
 <div class="container">
     <div class="card mb-3">
-        <img src=" {{ post.featured_image.url }}" class="card-img-top" alt="...">
+        <img src=" {{ post.featured_image.url }}" class="card-img-top">
         <div class="card-body">
-            <h1 class="post-title">{{ post.title }}</h1>
-            <p class="post-subtitle "><small class="text-body-secondary">{{ post.author }} | {{ post.created_on }}</small></p>
+            <h1 class="post-title">{{ post.title }} (<em>{{ post.category }}</em>)</h1>
+            <p class="cast" class="fw-semibold">Featuring: <em>{{ post.cast }}</em></p>
+            <p class="post-subtitle" class="fw-semibold">{{ post.author }} | {{ post.created_on }}</small></p>
             <p class="card-text">{{ post.content | safe }}</p>
 
             <div class="row">
