@@ -17,7 +17,7 @@
         {% for category in category_list %}
         <div class="col">
             <div class="card h-100 card-cover">
-                <img src="{{ category.category_image.url }}" class="card-img">
+                <a href="{% url 'category' category.name %}"><img src="{{ category.category_image.url }}"></a>
             </div>
         </div>
         {% endfor %}

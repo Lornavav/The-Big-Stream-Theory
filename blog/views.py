@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
+from django.views.generic import ListView
 from django.http import HttpResponseRedirect
 from .models import Post, Category
 from .forms import CommentForm
+
 
 class PostList(generic.ListView):
     model = Post
@@ -20,6 +22,20 @@ class CategoryList(generic.ListView):
     def get_queryset(self):
         category_list = Category.objects.all()
         return category_list
+
+
+class CatListView(ListView):
+
+    template_name = 'category.html'
+    context_object_name = 'catlist'
+
+    def get_queryset(self):
+        content = {
+            'cat': self.kwargs['category'],
+            'posts': Post.objects.filter(
+                category__name=self.kwargs['category']).filter(status=1)
+        }
+        return content
 
 
 class PostDetail(View):
