@@ -6,7 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from allauth.account.views import LoginView
-from .models import Post, Category
+from .models import Post, Category, Profile
 from .forms import CommentForm, UserUpdateForm, ProfileUpdateForm
 
 
@@ -110,44 +110,27 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('article_detail', args=[slug]))
 
 
-class MyProfile(LoginRequiredMixin, View):
-    def get(self, request):
-        user_form = UserUpdateForm(instance=request.user)
-        profile_form = ProfileUpdateForm(instance=request.user.profile)
+def profile(request):
 
-        context = {
-            'user_form': user_form,
-            'profile_form': profile_form
-        }
-
-        return render(request, 'users/profile.html, context')
-
-    def post(self, request):
-        user_form = UserUpdateForm(
-            request.POST,
-            instance=request.user
-        )
+    if request.method == 'POST':
+        user_form = UserUpdateForm(request.POST, instance=request.user)
         profile_form = ProfileUpdateForm(
-            request.POST,
-            request.FILES,
-            instace=request.user.profile
-        )
+            request.POST, request.FILES,
+            instance=request.user.profile
+            )
 
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
+            messages.success(
+                request, 'Your profile has been updated successfully!')
+            return redirect(to='profile')
 
-            messages.success(request, 'Your profile has been updated successfully')
+    else:
+        user_form = UserUpdateForm(instance=request.user)
+        profile_form = ProfileUpdateForm(instance=request.user.profile)
 
-            return redirect('profile')
-
-        else:
-
-            context = {
-                'user_form': user_form,
-                'profile_form': profile_form
-            }
-
-            messages.error(request, 'Error updating your profile')
-
-            return render(request, 'users/profile.html', context)
+    return render(request, 'profile.html', {
+        'user_form': user_form,
+        'profile_form': profile_form
+    })
