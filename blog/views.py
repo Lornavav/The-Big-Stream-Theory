@@ -110,6 +110,7 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('article_detail', args=[slug]))
 
 
+@login_required
 def profile(request):
 
     if request.method == 'POST':
