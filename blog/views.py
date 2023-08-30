@@ -3,9 +3,11 @@ from django.views import generic, View
 from django.views.generic import ListView
 from django.http import HttpResponseRedirect
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from allauth.account.views import LoginView
 from .models import Post, Category
-from .forms import CommentForm
+from .forms import CommentForm, UserUpdateForm, ProfileUpdateForm
 
 
 class PostList(generic.ListView):
