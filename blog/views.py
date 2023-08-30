@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 from allauth.account.views import LoginView
 from .models import Post, Category, Profile
 from .forms import CommentForm, UserUpdateForm, ProfileUpdateForm

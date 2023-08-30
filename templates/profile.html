@@ -1,30 +1,64 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
 {% block content %}
+{% load static %}
 
 
-<div class="center">
-    <form method="POST" enctype="multipart/form-data" class="card">
-        {% csrf_token %}
-
-        {% if user.profile %}
-        <img src="{{user.profile.avatar.url}}" alt="{{ user.username }}" class="avatar" accept=".jpg,.jpeg,.png" />
-        {% endif %}
-
-        <h2 class="text-center">{{ user.username | title }}</h2>
-        <p class="text-center"><a href="mailto:{{user.email}}">{{user.email}}</a></p>
-        <hr>
-
-        <label for="email">Email Address:</label>
-        <input type="email" id="email" name="email" value="{{user.email}}" />
-
-
-        <label for="avatar">Avatar:</label>
-        <input type="file" name="avatar" id="avatar">
-
-        <button type="submit" class="btn btn-primary full-width">Update Profile</button>
-
-    </form>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Profile form  -->
+        <div class="text-bg-white px-5 py-5 text-left">
+            <div class="py-5">
+                <div class="col-lg-6 mx-auto">
+                    {% if user_form.errors %}
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <div id="form_errors">
+                            {% for key, value in user_form.errors.items %}
+                            <strong>{{ value }}</strong>
+                            {% endfor %}
+                        </div>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    {% endif %}
+                    <div class="form-content">
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-row">
+                                {% if "placeholder" in user.profile.avatar.url %}
+                                <h3><img src="{% static 'images/avatar.jpg' %}" alt="{{ user.username }}"
+                                        class="user-avatar rounded-circle flex-shrink-0">
+                                    {{ user.username | title }} </h3>
+                                {% else %}
+                                <h3><img src="{{ user.profile.avatar.url }}" alt="{{ user.username }}"
+                                        class="user-avatar rounded-circle flex-shrink-0">
+                                    {{ user.username | title }} </h3>
+                                {% endif%}
+                                <div class="form-group">
+                                    <label class="small mb-1">Username:</label>
+                                    {{ user_form.username }}
+                                    <label class="small mb-1">Email:</label>
+                                    {{ user_form.email }}
+                                    <label class="small mb-1">First Name:</label>
+                                    {{ user_form.first_name }}
+                                    <label class="small mb-1">Last Name:</label>
+                                    {{ user_form.last_name }}
+                                    <label class="small mb-1">Avatar:</label>
+                                    {{ profile_form.avatar }}
+                                </div>
+                            </div>
+                            <br><br>
+                            <button type="submit" class="cancel-button btn btn-outline-success">Save
+                                Changes</button>
+                            <a href="{% url 'home' %}" class="cancel-button btn btn-outline-secondary">
+                                Cancel </a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock content %}
