@@ -23,7 +23,7 @@ class CategoryList(generic.ListView):
 
     model = Category
     template_name = 'index.html'
-    
+
     def get_queryset(self):
         category_list = Category.objects.all()
         return category_list
@@ -62,7 +62,7 @@ class PostDetail(View):
                 "commented": False,
                 "liked": liked,
                 "comment_form": CommentForm()
-           },
+            },
         )
 
     def post(self, request, slug, *args, **kwargs):
@@ -135,3 +135,15 @@ def profile(request):
         'user_form': user_form,
         'profile_form': profile_form
     })
+
+
+def show_all_users(request):
+    """
+    Get all user profile data and make it available site wide
+    """
+    data = Profile.objects.all()
+
+    context = {
+        'data': data
+    }
+    return context
