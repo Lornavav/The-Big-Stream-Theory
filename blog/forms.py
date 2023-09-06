@@ -1,6 +1,9 @@
-from .models import Comment, Profile
+from .models import Comment, Profile, Post
 from django import forms
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit
 
 
 class CommentForm(forms.ModelForm):
@@ -18,7 +21,7 @@ class UserUpdateForm(forms.ModelForm):
             'email',
             'first_name',
             'last_name',
-            )
+        )
 
 
 class ProfileUpdateForm(forms.ModelForm):
@@ -26,3 +29,24 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['avatar',]
+
+
+class BlogForm(LoginRequiredMixin, forms.ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+        self.helper.form_tag = False
+        self.helper.disable_csrf = True
+
+    class Meta:
+        model = Post
+        exclude = ['author', 'slug']
+
+        widgets = {
+            'title': forms.TextInput(attrs={"class": "form-control"}),
+            'category': forms.Select(attrs={'class': 'form-control'}),
+            'cast': forms.TextInput(attrs={"class": "form-control"}),
+            'content': forms.Textarea(attrs={"class": "form-control"}),
+            'status': forms.Select(attrs={'class': 'form-control'}),
+        }

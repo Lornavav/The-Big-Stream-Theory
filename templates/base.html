@@ -33,9 +33,6 @@
                 </li>
                 {% if user.is_authenticated %}
                 <li class="nav-item p-2">
-                    <a href="{% url 'profile' %}" class="nav-link">Profile</a>
-                </li>
-                <li class="nav-item p-2">
                     <a href="{% url 'account_logout' %}" class="nav-link" >Logout</a>
                 </li>
                 {% else %}

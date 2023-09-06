@@ -1,14 +1,16 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView, DetailView
+from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
+from django.utils.text import slugify
 from allauth.account.views import LoginView
 from .models import Post, Category, Profile
-from .forms import CommentForm, UserUpdateForm, ProfileUpdateForm
+from .forms import CommentForm, UserUpdateForm, ProfileUpdateForm, BlogForm
 
 
 class PostList(generic.ListView):
@@ -118,7 +120,7 @@ def profile(request):
         profile_form = ProfileUpdateForm(
             request.POST, request.FILES,
             instance=request.user.profile
-            )
+        )
 
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
@@ -147,3 +149,37 @@ def show_all_users(request):
         'data': data
     }
     return context
+
+
+class CreateArticle(View):
+
+    def get(self, request):
+        if self.request.user.is_authenticated:
+            form = BlogForm()
+            context = {'form': form, 'h1': 'Submit a new Design Resource'}
+
+            return render(request, 'add_post.html', context)
+
+        else:
+            return redirect('articles')
+
+    def post(self, request, *arg, **kwargs):
+        print(self.request.user.id)
+        if self.request.user.is_authenticated:
+            form = BlogForm(request.POST)
+            if form.is_valid():
+
+                form.instance.author = self.request.user
+                form.instance.slug = slugify(form.instance.title)
+
+                new_entry = form.save()
+                messages.add_message(
+                    request, messages.SUCCESS,
+                    f'{new_entry} successfully added.')
+
+                return redirect('article_detail', new_entry.slug)
+            else:
+                return render('add_post.html', {'form': form})
+
+        else:
+            return redirect('home')
