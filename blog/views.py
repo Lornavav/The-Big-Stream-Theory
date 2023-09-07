@@ -173,9 +173,7 @@ class CreateArticle(View):
                 form.instance.slug = slugify(form.instance.title)
 
                 new_entry = form.save()
-                messages.add_message(
-                    request, messages.SUCCESS,
-                    f'{new_entry} successfully added.')
+                messages.success(request, f"{new_entry} was successfully added!")
 
                 return redirect('article_detail', new_entry.slug)
             else:
@@ -197,7 +195,7 @@ class DeletePost(DeleteView):
 
     model = Post
     template_name = 'delete_post.html'
-    success_message = 'The article was successfully deleted!'
+    success_message = "The article was successfully deleted!"
     success_url = reverse_lazy('articles')
 
     def delete(self, request, *args, **kwargs):

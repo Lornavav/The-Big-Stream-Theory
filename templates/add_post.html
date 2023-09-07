@@ -5,7 +5,7 @@
 
 {% block content %}
 
-
+{% if user.is_staff %}
 <div class="container-main-content p-4">
     {% load cloudinary %}
     <div class="form-group">
@@ -16,5 +16,5 @@
         </form>
     </div>
 </div>
-
+{% endif %}
 {% endblock content %}
