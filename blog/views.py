@@ -156,7 +156,7 @@ class CreateArticle(View):
     def get(self, request):
         if self.request.user.is_authenticated:
             form = BlogForm()
-            context = {'form': form, 'h1': 'Add new Article'}
+            context = {'form': form}
 
             return render(request, 'add_post.html', context)
 
