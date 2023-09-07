@@ -38,6 +38,7 @@
                         {{ total_comments }}</strong>
                     {% endwith %}
                     <span><a href="{% url 'edit_post' post.slug %}">Edit</a></span>
+                    <span><a href="{% url 'delete_post' post.slug %}">Delete</a></span>
                 </div>
             </div>
         </div>

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load static%}
+{% load crispy_forms_tags %}
+
+{% block content %}
+{% block title %} Delete Post {% endblock %}
+
+<div class="container-main-content p-4">
+    <form method="POST">
+        {% csrf_token %}
+
+        <p>Are you sure you want to delete <a href="{% url 'article_detail' post.slug %}">{{ post.title }}</a>?
+        </p>
+
+        <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-outline-dark">Nevermind</a>
+        <input type="submit" value="Delete Permanently" class="btn btn-danger"></input>
+    </form>
+</div>
+
+
+{% endblock content %}

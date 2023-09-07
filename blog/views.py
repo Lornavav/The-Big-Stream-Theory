@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
-from django.views.generic import ListView, CreateView, DetailView, UpdateView
+from django.views.generic import ListView, CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -191,3 +191,16 @@ class EditPost(SuccessMessageMixin, UpdateView):
     template_name = 'edit_post.html'
     success_message = 'The article was edited successfully!'
     success_url = reverse_lazy('articles')
+
+
+class DeletePost(DeleteView):
+
+    model = Post
+    template_name = 'delete_post.html'
+    success_message = 'The article was successfully deleted!'
+    success_url = reverse_lazy('articles')
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, self.success_message)
+        return super(DeletePost, self).delete(request, *args, **kwargs)
+
