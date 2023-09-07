@@ -8,7 +8,6 @@ from crispy_forms.layout import Submit
 
 
 
-
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
@@ -50,6 +49,6 @@ class BlogForm(LoginRequiredMixin, forms.ModelForm):
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'category': forms.Select(attrs={'class': 'form-control'}),
             'cast': forms.TextInput(attrs={'class': 'form-control'}),
-            'content': SummernoteWidget(attrs={'summernote': {'width': '100%','height': '600px'}}),
+            'content': SummernoteWidget(attrs={'summernote': {'width': '100%', 'height': '600px'}}),
             'status': forms.Select(attrs={'class': 'form-control'}),
-            }
+        }

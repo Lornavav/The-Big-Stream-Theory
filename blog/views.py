@@ -3,7 +3,7 @@ from django.views import generic, View
 from django.views.generic import ListView, CreateView, DetailView, UpdateView
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
@@ -156,7 +156,7 @@ class CreateArticle(View):
     def get(self, request):
         if self.request.user.is_authenticated:
             form = BlogForm()
-            context = {'form': form, 'h1': 'Submit a new Design Resource'}
+            context = {'form': form, 'h1': 'Add new Article'}
 
             return render(request, 'add_post.html', context)
 
@@ -179,7 +179,7 @@ class CreateArticle(View):
 
                 return redirect('article_detail', new_entry.slug)
             else:
-                return render('add_post.html', {'form': form})
+                return render(request, 'add_post.html', {'form': form})
 
         else:
             return redirect('home')
@@ -191,4 +191,3 @@ class EditPost(SuccessMessageMixin, UpdateView):
     template_name = 'edit_post.html'
     success_message = 'The article was edited successfully!'
     success_url = reverse_lazy('articles')
-
