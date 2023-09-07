@@ -6,6 +6,7 @@
 {% block content %}
 {% block title %} Delete Post {% endblock %}
 
+{% if user.is_staff %}
 <div class="container-main-content p-4">
     <form method="POST">
         {% csrf_token %}
@@ -17,6 +18,7 @@
         <input type="submit" value="Delete Permanently" class="btn btn-danger"></input>
     </form>
 </div>
+{% endif %}
 
 
 {% endblock content %}

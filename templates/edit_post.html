@@ -5,6 +5,7 @@
 
 {% block content %}
 
+{% if user.is_staff %}
 <div class="container-main-content p-4">
     <div class="form-group">
         <form method="POST">
@@ -14,16 +15,7 @@
         </form>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
+{% endif %}
 
 
 {% endblock content %}

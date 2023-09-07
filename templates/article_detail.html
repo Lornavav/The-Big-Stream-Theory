@@ -36,8 +36,10 @@
                     <strong class="text-secondary"><i class="far fa-comments"></i>
                         {{ total_comments }}</strong>
                     {% endwith %}
+                    {% if user.is_staff %}
                     <span><a href="{% url 'edit_post' post.slug %}">Edit</a></span>
                     <span><a href="{% url 'delete_post' post.slug %}">Delete</a></span>
+                    {% endif %}
                 </div>
             </div>
         </div>
