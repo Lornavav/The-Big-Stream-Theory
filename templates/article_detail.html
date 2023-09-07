@@ -20,9 +20,11 @@
                         <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
                             {% csrf_token %}
                             {% if liked %}
-                            <button type="submit" name="likes" value="{{post.slug}}" class="btn-like"><i class="fas fa-heart"></i></button>
+                            <button type="submit" name="likes" value="{{post.slug}}" class="btn-like"><i
+                                    class="fas fa-heart"></i></button>
                             {% else %}
-                            <button type="submit" name="likes" value="{{post.slug}}" class="btn-like"><i class="far fa-heart"></i></button>
+                            <button type="submit" name="likes" value="{{post.slug}}" class="btn-like"><i
+                                    class="far fa-heart"></i></button>
                             {% endif %}
                         </form>
                         {% else %}
@@ -32,7 +34,7 @@
                     </strong>
                 </div>
                 <div class="col-1">
-                    {% with comments.count as total_comments %} 
+                    {% with comments.count as total_comments %}
                     <strong class="text-secondary"><i class="far fa-comments"></i>
                         {{ total_comments }}</strong>
                     {% endwith %}
@@ -80,7 +82,7 @@
                     <form method="post" style="margin-top: 1.3em;">
                         {{ comment_form | crispy }}
                         {% csrf_token %}
-                        <button  type="submit" class="btn btn-signup btn-lg">Submit</button>
+                        <button type="submit" class="btn btn-signup btn-lg">Submit</button>
                     </form>
                     {% endif %}
                     {% endif %}

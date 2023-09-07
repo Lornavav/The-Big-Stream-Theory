@@ -32,7 +32,7 @@ class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     cast = models.CharField(max_length=300)
     content = models.TextField()
-    featured_image = CloudinaryField('image', default='placeholder')
+    featured_image = CloudinaryField('image')
     excerpt = models.TextField(blank=True)
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(User, related_name='blog_likes', blank=True)
@@ -71,8 +71,7 @@ class Profile(models.Model):
         User,
         related_name='profile',
         on_delete=models.CASCADE
-        )
-
+    )
     avatar = CloudinaryField('image', default='placeholder')
 
     def __str__(self):

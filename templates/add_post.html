@@ -9,7 +9,7 @@
 <div class="container-main-content p-4">
     {% load cloudinary %}
     <div class="form-group">
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {% crispy form %}
             <input type="submit" value="Submit" class="btn btn-dark">

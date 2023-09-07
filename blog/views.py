@@ -166,7 +166,7 @@ class CreateArticle(View):
     def post(self, request, *arg, **kwargs):
         print(self.request.user.id)
         if self.request.user.is_authenticated:
-            form = BlogForm(request.POST)
+            form = BlogForm(request.POST, request.FILES)
             if form.is_valid():
 
                 form.instance.author = self.request.user
