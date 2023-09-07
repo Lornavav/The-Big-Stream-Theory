@@ -44,7 +44,7 @@ class BlogForm(LoginRequiredMixin, forms.ModelForm):
 
     class Meta:
         model = Post
-        exclude = ['author', 'slug']
+        exclude = ['author', 'slug', 'likes']
 
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),

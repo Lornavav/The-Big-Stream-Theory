@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
-from django.views.generic import ListView, CreateView, DetailView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -183,3 +183,12 @@ class CreateArticle(View):
 
         else:
             return redirect('home')
+
+
+class EditPost(SuccessMessageMixin, UpdateView):
+    model = Post
+    form_class = BlogForm
+    template_name = 'edit_post.html'
+    success_message = 'The article was edited successfully!'
+    success_url = reverse_lazy('articles')
+

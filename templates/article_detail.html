@@ -37,6 +37,7 @@
                     <strong class="text-secondary"><i class="far fa-comments"></i>
                         {{ total_comments }}</strong>
                     {% endwith %}
+                    <span><a href="{% url 'edit_post' post.slug %}">Edit</a></span>
                 </div>
             </div>
         </div>
@@ -77,7 +78,7 @@
                     <form method="post" style="margin-top: 1.3em;">
                         {{ comment_form | crispy }}
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                        <button  type="submit" class="btn btn-signup btn-lg">Submit</button>
                     </form>
                     {% endif %}
                     {% endif %}
