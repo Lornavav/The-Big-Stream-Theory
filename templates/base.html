@@ -19,12 +19,16 @@
     <!--Font Awesone-->
     <script src="https://kit.fontawesome.com/92dd2e7f78.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono&display=swap" rel="stylesheet">
 
     <title>{% block title %}{% endblock %}</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar">
         <a href="{% url 'home' %}" class="navbar-brand">The Big Stream Theory</a>
             <ul class="nav justify-content-end">
                 <li class="nav-item p-2">

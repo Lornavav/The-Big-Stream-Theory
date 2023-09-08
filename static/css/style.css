@@ -1,9 +1,16 @@
+body {
+    background-color: #A846A0;
+}
+
 .navbar {
-  background-color: black;
+  background-color: #f6f8ff;
 }
 
 .navbar-brand {
-    color: blueviolet;
+    color: #23ce6b;
+    font-family: 'Overpass Mono', monospace;
+    font-size: 36px;
+    font-weight: 600;
 }
 
 .messages {
