@@ -69,7 +69,7 @@
 
 ## Testing and Validation
 
-Testing documentation can be found at [TESTING.md](Testing.md)
+Testing documentation can be found at [TESTING.md](TESTING.md)
 
 ## Deployment
 
