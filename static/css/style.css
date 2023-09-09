@@ -24,3 +24,8 @@ body {
     text-align: center;
     width: 50%;
 }
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+}

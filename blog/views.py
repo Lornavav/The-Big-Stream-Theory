@@ -9,8 +9,8 @@ from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.text import slugify
 from allauth.account.views import LoginView
-from .models import Post, Category, Profile
-from .forms import CommentForm, UserUpdateForm, ProfileUpdateForm, BlogForm
+from .models import Post, Category
+from .forms import CommentForm, BlogForm
 
 
 class PostList(generic.ListView):
@@ -138,17 +138,6 @@ def profile(request):
         'profile_form': profile_form
     })
 
-
-def show_all_users(request):
-    """
-    Get all user profile data and make it available site wide
-    """
-    data = Profile.objects.all()
-
-    context = {
-        'data': data
-    }
-    return context
 
 
 @login_required
