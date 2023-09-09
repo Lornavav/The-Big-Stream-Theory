@@ -3,27 +3,26 @@
 {% block content %}
 
 <!--Website Intro-->
-<div class="container p-5 my-5 bg-dark text-white">
-    <h1>The Big Stream Theory</h1>
-    <p>Fed up of scrolling for hours trying to figure out what to watch?
-        Use our website to look at reviews of the latest shows on popular streaming sites.
+<div class="container-fluid hero-container p-5 text-center">
+    <h2>Welcome fellow TV lovers</h2>
+    <p>Fed up of scrolling for hours trying to figure out what to watch?<br>
+        Use our website to look at reviews of the latest shows on popular streaming sites.<br>
         Register with us so you can log in and leave comments and enage with other TV lovers.
     </p>
 </div>
 
-<!--Category Cards-->
-<div class="container">
-    <div class="row row-cols-1 row-cols-md-2 g-4">
+<!-- Category Cards-->
+<div class="container px-4 py-4 ">
+    <div class="row row-cols-1 row-cols-lg-2 g-4">
         {% for category in category_list %}
         <div class="col">
-            <div class="card h-100 card-cover">
-                <a href="{% url 'category' category.name %}"><img src="{{ category.category_image.url }}"></a>
+            <div class="card">
+                <a href="{% url 'category' category.name %}"><img src="{{ category.category_image.url }}" class="card-img-top" alt="..."></a>
             </div>
         </div>
         {% endfor %}
     </div>
-</div>    
-
+</div>
 
 
 

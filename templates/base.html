@@ -29,10 +29,12 @@
 
 <body>
     <nav class="navbar">
-        <a href="{% url 'home' %}" class="navbar-brand">The Big Stream Theory</a>
+        <div class="container-fluid">
+            <a href="{% url 'home' %}" class="navbar-brand"><img src="{% static 'images/logo.png' %}" alt="logo" width="60" height="60" class="d-inline-block align-text-center">
+            The Big Stream Theory</a>
             <ul class="nav justify-content-end">
                 <li class="nav-item p-2">
-                    <a class="nav-link active" href="{% url 'home' %}">Home</a>
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
                 </li>
                 <li class="nav-item p-2">
                     <a class="nav-link" href="{% url 'articles' %}">Articles</a>
@@ -54,8 +56,8 @@
                     <a class="nav-link" href="{% url 'add_post' %}">Add Post</a>
                 </li>
                 {% endif %}
-
             </ul>
+        </div>
     </nav>
 
     {% if messages %}
@@ -74,24 +76,23 @@
         {% endblock content %}
     </main>
 
-    <!--<footer class=" footer mx-autopy-3 bg-dark text-white fixed-bottom">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6 mx-auto text-center">
-                    <p class="contact-us m-0 text-center"><i class="fa-regular fa-envelope">
-                    </i>hello@thebigstreamtheory.com
-                    </p>
-                    <a href="https://www.instagram.com/" target="_blank" rel="noopener"
-                            aria-label="Vist our Instagram page (opens in new tab)"><i class="fab fa-instagram ms-3"></i></a>
-                    <a href="https://twitter.com/" target="_blank" rel="noopener"
-                            aria-label="Vist our Twitter page (opens in new tab)"><i class="fab fa-twitter-square ms-3"></i></a>
-                    
-                    <a href="https://www.facebook.com/" target="_blank" rel="noopener"
-                            aria-label="Vist our Facebook page (opens in new tab)"><i class="fab fa-facebook-square ms-3"></i></a>
-                </div>
+<footer class="py-5 text-white">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 mx-auto text-center">
+                <p class="contact-us m-0 text-center"><i class="fa-regular fa-envelope">
+                </i>hello@thebigstreamtheory.com
+                </p>
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener"
+                        aria-label="Vist our Instagram page (opens in new tab)"><i class="fab fa-instagram ms-3"></i></a>
+                <a href="https://twitter.com/" target="_blank" rel="noopener"
+                        aria-label="Vist our Twitter page (opens in new tab)"><i class="fab fa-twitter-square ms-3"></i></a>         
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener"
+                        aria-label="Vist our Facebook page (opens in new tab)"><i class="fab fa-facebook-square ms-3"></i></a>
             </div>
         </div>
-    </footer>
-</body>-->
+    </div>
+</footer>
+</body>
 
 </html>

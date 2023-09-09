@@ -1,16 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     background-color: #A846A0;
+    font-family: 'Overpass Mono', monospace;
 }
 
 .navbar {
-  background-color: #f6f8ff;
+  background-color: #23ce6b;
 }
 
 .navbar-brand {
-    color: #23ce6b;
+    color: #f6f8ff;
     font-family: 'Overpass Mono', monospace;
-    font-size: 36px;
+    font-size: 28px;
     font-weight: 600;
+}
+
+a.navbar-brand:hover{
+    color: #50514f;
+}
+
+.nav-link {
+    color: #f6f8ff;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.nav-link:hover{
+    color: #50514f;
+}
+
+.hero-container {
+    background-color: #272d2d;
+    color: #f6f8ff;
+}
+
+.hero-container p {
+    font-size: 18px;
+}
+
+footer {
+    background-color: #272d2d;
 }
 
 .messages {
@@ -25,7 +59,7 @@ body {
     width: 50%;
 }
 
-.user-avatar {
-    width: 32px;
-    height: 32px;
+.card-img-top {
+    border-top-left-radius: var(--bs-card-inner-border-radius);
+    border-top-right-radius: var(--bs-card-inner-border-radius);
 }
