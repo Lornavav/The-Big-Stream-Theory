@@ -32,7 +32,7 @@ class ProfileUpdateForm(forms.ModelForm):
         fields = ['avatar',]
 
 
-class BlogForm(LoginRequiredMixin, forms.ModelForm):
+class BlogForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

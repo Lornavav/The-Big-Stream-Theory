@@ -151,37 +151,32 @@ def show_all_users(request):
     return context
 
 
-class CreateArticle(View):
 
-    def get(self, request):
-        if self.request.user.is_authenticated:
-            form = BlogForm()
-            context = {'form': form}
+def add_article(request):
+    """
+    Create new article post and 
+    displays a confirmation message and redirects 
+    """
+    submitted = False
+    if request.method == 'POST':
+        # handle the POST request here
+        form = BlogForm(request.POST, request.FILES)
+        if all([form.is_valid()]):
+            form = form.save(commit=False)
+            form.author = request.user
+            form.save()
+            messages.success(
+                request,
+                'Your article was submitted successfully!'
+            )
+            return HttpResponseRedirect('/add_post?submitted=True')
+    else:
+        form = BlogForm
+        if 'submitted' in request.GET:
+            submitted = True
 
-            return render(request, 'add_post.html', context)
-
-        else:
-            return redirect('articles')
-
-    def post(self, request, *arg, **kwargs):
-        print(self.request.user.id)
-        if self.request.user.is_authenticated:
-            form = BlogForm(request.POST, request.FILES)
-            if form.is_valid():
-
-                form.instance.author = self.request.user
-                form.instance.slug = slugify(form.instance.title)
-
-                new_entry = form.save()
-                messages.success(
-                    request, f"{new_entry} was successfully added!")
-
-                return redirect('article_detail', new_entry.slug)
-            else:
-                return render(request, 'add_post.html', {'form': form})
-
-        else:
-            return redirect('home')
+    return render(
+        request, 'add_post.html', {'form': form, 'submitted': submitted})
 
 
 class EditPost(SuccessMessageMixin, UpdateView):
