@@ -17,6 +17,14 @@
         <input type="submit" value="Delete Permanently" class="btn btn-danger"></input>
     </form>
 </div>
+{% else %}
+<div class="text-bg-secondary px-4 py-5 text-center">
+    <div class="py-5">
+        <div class="col-lg-6 mx-auto">
+            <h3 class="access-denied">Sorry, access denied please log in first.</h3>
+        </div>
+    </div>
+</div>
 {% endif %}
 
 

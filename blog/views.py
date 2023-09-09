@@ -151,7 +151,7 @@ def show_all_users(request):
     return context
 
 
-
+@login_required
 def add_article(request):
     """
     Create new article post and 
