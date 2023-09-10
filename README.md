@@ -1,11 +1,10 @@
 # The Big Stream Theory
 
-*I AM RESPONSIVE TO GO HERE*
+_I AM RESPONSIVE TO GO HERE_
 
 [View live website](https://the-big-stream-theory-92a5f2837220.herokuapp.com/)
 
 [View admin site](https://the-big-stream-theory-92a5f2837220.herokuapp.com/admin/login/?next=/admin/)
-
 
 ## Introduction
 
@@ -24,7 +23,7 @@ To create a repository of great blog articles about current TV shows on popular 
 
 The ERD was created on [Lucidchart](https://www.lucidchart.com/). It illustrates the relationship between theCategory, Post and Comment models.
 
-![](documentation/images/erd_diagram.png)
+![ERD](documentation/images/erd_diagram.png)
 
 ## User Experience
 
@@ -32,11 +31,11 @@ This website was designed using the Five Planes of UX
 
 ### Strategy
 
-User stories were written using GitHub Issues and were prioritised using the MoSCoW method. User stories along with testing can be found HERE 
+User stories were written using GitHub Issues and were prioritised using the MoSCoW method. User stories along with testing can be found HERE
 
 ### Scope
 
-The project was scope was to implement CRUD functionaility for the user. This was implmented at at a staff level. Staff can Create articles, Read articles, Update articles and Delete articles. 
+The project was scope was to implement CRUD functionaility for the user. This was implmented at at a staff level. Staff can Create articles, Read articles, Update articles and Delete articles.
 
 ### Structure
 
@@ -46,15 +45,15 @@ We kept a simple structure to the website so it is easy for the user to navigate
 
 Desktop wireframes were created at the inital planning stage and the design has varied slightly since due to time constraints and not being able to get the cards to work out the way I had initally planned.
 
-* [Desktop wireframes created with excalidraw](documentation/images/desktop_wireframes.png)
+- [Desktop wireframes created with excalidraw](documentation/images/desktop_wireframes.png)
 
-* [Mobile wireframes created with Balsamiq](documentation/images/mobile_wireframes.png)
-  
+- [Mobile wireframes created with Balsamiq](documentation/images/mobile_wireframes.png)
+
 ### Surface
 
 I created a logo using [Free Logo Maker](https://www.namecheap.com/) and from there I like the colour scheme and went over to [Coolors](https://coolors.co/) to create the below colour pallette.
 
-![](documentation/images/colour_pallette.png)
+![Colour pallette](documentation/images/colour_pallette.png)
 
 ## Agile Development
 
@@ -68,12 +67,12 @@ GitHub Issues and Projects were used to write and manage user stories and epics.
 
 The navbar contains a logo and text both hyperlinked to redirect to the home page from any of the other web pages.
 
-There are four  states of the nav bar
+There are four states of the nav bar
 
-* [Logged out state](documentation/images/navbar_logged_out.png)
-* [User logggd in](documentation/images/navbar_user.png)
-* [Admin logged in](documentation/images/navbar_admin.png)
-* [Responsive navbar for mobile](documentation/images/navbar_responsive.png)
+- [Logged out state](documentation/images/navbar_logged_out.png)
+- [User logggd in](documentation/images/navbar_user.png)
+- [Admin logged in](documentation/images/navbar_admin.png)
+- [Responsive navbar for mobile](documentation/images/navbar_responsive.png)
 
 ### Category Cards
 
@@ -97,8 +96,8 @@ The articles page is where a user can view all articles contained on the website
 
 The article detail page shows further details on a single article post. This is where logged in users can leave a comment or like a post. Users who are not logged in will be promted to log in.
 
-* [Article detail page logged in user](documentation/images/article_detail_page.png)
-* [Article detail pages not logged in](documentation/images/article_details_not_logged_in.png)
+- [Article detail page logged in user](documentation/images/article_detail_page.png)
+- [Article detail pages not logged in](documentation/images/article_details_not_logged_in.png)
 
 #### Register
 
@@ -123,7 +122,7 @@ Staff have access to add an article post on the front end. When they sign into t
 Staff have access to edit posts from the front end. The option to edit a post will appear on the articles details page when a staff member is logged into the site.
 
 ![Edit post](documentation/images/edit_post.png)
-  
+
 ### Delete Post
 
 Staff have access to delete posts from the front end. The option to delete a post will appear on the articles details page when a staff member is logged into the site.
@@ -132,10 +131,10 @@ Staff have access to delete posts from the front end. The option to delete a pos
 
 ### Messages
 
-Alert messages were implmented with the help of Django messages and message tags. 
+Alert messages were implmented with the help of Django messages and message tags.
 
-* [Message example](documentation/images/messaging.png)
-* [Message with name example](documentation/images/messaging_with_name.png)
+- [Message example](documentation/images/messaging.png)
+- [Message with name example](documentation/images/messaging_with_name.png)
 
 ## Technologies Used
 
