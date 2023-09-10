@@ -1,3 +1,5 @@
+/* Default styling */
+
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +9,12 @@
 body {
     background-color: #A846A0;
     font-family: 'Overpass Mono', monospace;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
+
+/* Navbar styling */
 
 .navbar {
   background-color: #23ce6b;
@@ -30,6 +37,8 @@ a.navbar-brand:hover{
     font-weight: 600;
 }
 
+/* Hero container homepage */
+
 .nav-link:hover{
     color: #50514f;
 }
@@ -43,8 +52,11 @@ a.navbar-brand:hover{
     font-size: 18px;
 }
 
+/* Footer styling */
+
 footer {
     background-color: #272d2d;
+    margin-top: auto;
 }
 
 footer p {
@@ -61,6 +73,8 @@ footer a {
 footer a:hover {
     color: #f6f8ff
 }
+
+/* Card styling articles page */
 
 .article-card{
     background-color: #50514f;
@@ -91,6 +105,8 @@ footer a:hover {
     color:#A846A0
 }
 
+/* Pagination styling */
+
 .page-link{
     color: #A846A0;
     font-weight: bold;
@@ -99,6 +115,8 @@ footer a:hover {
 .page-link:hover{
     color: #50514f;
 }
+
+/* Article detail page styling */
 
 .card-text-detail{
     color: #272d2d;
@@ -115,10 +133,14 @@ footer a:hover {
     font-weight: 600;
 }
 
+/* Likes styling */
+
 .btn-like{
     font-size: 24px;
     color: #A846A0;
 }
+
+/* Comments styling */
 
 .fa-comments{
     font-size: 24px;
@@ -143,6 +165,8 @@ footer a:hover {
     border: none;
 }
 
+/* Alert messaging styling */
+
 .messages {
     border-radius: 15px;
     margin-bottom: 20px;
@@ -155,6 +179,8 @@ footer a:hover {
     width: 50%;
 }
 
+/* Sign up page styling */
+
 .sign-up a{
     text-decoration: none;
     color: #f6f8ff;
@@ -163,6 +189,19 @@ footer a:hover {
 .sign-up a:hover{
     color: #23ce6b;
 }
+
+/* Register page styling */
+
+.register a {
+    text-decoration: none;
+    color: #f6f8ff;
+}
+
+.register a:hover {
+    color: #23ce6b;
+}
+
+/* Media queries */
 
 @media screen and (max-width: 541px) {
     

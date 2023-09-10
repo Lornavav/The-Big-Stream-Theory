@@ -14,14 +14,22 @@ from .forms import CommentForm, BlogForm
 
 
 class PostList(generic.ListView):
+    """
+    View to show all articles on articles page
+    will paginate after 6 posts
+    only published posts will appear
+    """
     model = Post
     queryset = Post.objects.filter(
         status=1).order_by('-created_on')
     template_name = 'articles.html'
     paginate_by = 6
 
-
+# Inspiration taken from https://project4-cocktail-nerd.herokuapp.com/ for category work
 class CategoryList(generic.ListView):
+    """
+    View to return all categories created on the back end
+    """
 
     model = Category
     template_name = 'index.html'
@@ -32,6 +40,10 @@ class CategoryList(generic.ListView):
 
 
 class CatListView(ListView):
+    """
+    View to return articles by category when 
+    user has clicked on a category
+    """
 
     template_name = 'category.html'
     context_object_name = 'catlist'
@@ -44,8 +56,12 @@ class CatListView(ListView):
         }
         return content
 
-
+# Followed codestar CI walkthrough to create this view
 class PostDetail(View):
+    """
+    View to display page for single article
+    including comment feature
+    """
 
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
@@ -100,6 +116,9 @@ class PostDetail(View):
 
 
 class PostLike(View):
+    """
+    View to handle end user liking/unliking articles
+    """
 
     def post(self, request, slug):
         post = get_object_or_404(Post, slug=slug)
@@ -113,42 +132,15 @@ class PostLike(View):
 
 
 @login_required
-def profile(request):
-
-    if request.method == 'POST':
-        user_form = UserUpdateForm(request.POST, instance=request.user)
-        profile_form = ProfileUpdateForm(
-            request.POST, request.FILES,
-            instance=request.user.profile
-        )
-
-        if user_form.is_valid() and profile_form.is_valid():
-            user_form.save()
-            profile_form.save()
-            messages.success(
-                request, 'Your profile has been updated successfully!')
-            return redirect(to='profile')
-
-    else:
-        user_form = UserUpdateForm(instance=request.user)
-        profile_form = ProfileUpdateForm(instance=request.user.profile)
-
-    return render(request, 'profile.html', {
-        'user_form': user_form,
-        'profile_form': profile_form
-    })
-
-
-
-@login_required
 def add_article(request):
     """
-    Create new article post and 
-    displays a confirmation message and redirects 
+    View for staff to create a new article on the front end
+    Published articles will display on front end
+    Draft articles will display on admin side
     """
     submitted = False
     if request.method == 'POST':
-        # handle the POST request here
+        
         form = BlogForm(request.POST, request.FILES)
         if all([form.is_valid()]):
             form = form.save(commit=False)
@@ -169,6 +161,9 @@ def add_article(request):
 
 
 class EditPost(SuccessMessageMixin, UpdateView):
+    """
+    Staff can edit articles
+    """
     model = Post
     form_class = BlogForm
     template_name = 'edit_post.html'
@@ -177,7 +172,9 @@ class EditPost(SuccessMessageMixin, UpdateView):
 
 
 class DeletePost(DeleteView):
-
+    """
+    Staff can delete posts
+    """
     model = Post
     template_name = 'delete_post.html'
     success_message = "The article was successfully deleted!"

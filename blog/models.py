@@ -10,7 +10,8 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 class Category(models.Model):
     """
-    Category model
+    Category model to organise articles by category
+    and display on homepage
     """
     name = models.CharField(max_length=50, unique=True)
     category_image = CloudinaryField('image', default='placeholder')
@@ -24,7 +25,7 @@ class Category(models.Model):
 
 class Post(models.Model):
     """
-    Post model for admins to create articles for the website
+    Post model for staff to create blogposts
     """
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)

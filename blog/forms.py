@@ -8,12 +8,18 @@ from crispy_forms.layout import Submit
 
 
 class CommentForm(forms.ModelForm):
+    """
+    Form where end users can leave comments
+    """
     class Meta:
         model = Comment
         fields = ('body',)
 
 
 class BlogForm(forms.ModelForm):
+    """
+    Form for staff to add blogpost on the front end
+    """
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
