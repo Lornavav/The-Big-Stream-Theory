@@ -31,7 +31,7 @@ This website was designed using the Five Planes of UX
 
 ### Strategy
 
-User stories were written using GitHub Issues and were prioritised using the MoSCoW method. User stories along with testing can be found HERE
+User stories were written using GitHub Issues and were prioritised using the MoSCoW method. User stories along with testing can be found [here](TESTING.md).
 
 ### Scope
 
@@ -51,9 +51,15 @@ Desktop wireframes were created at the inital planning stage and the design has 
 
 ### Surface
 
+#### Colour Scheme
+
 I created a logo using [Free Logo Maker](https://www.namecheap.com/) and from there I like the colour scheme and went over to [Coolors](https://coolors.co/) to create the below colour pallette.
 
 ![Colour pallette](documentation/images/colour_pallette.png)
+
+### Typography
+
+Again I took inspiration from the logo I crated on the above website. I never ended up using the logo as I couldnt get it to fit on the bavbar properly. I liked the font they used which was Overpass which I imported from 
 
 ## Agile Development
 
@@ -136,9 +142,43 @@ Alert messages were implmented with the help of Django messages and message tags
 - [Message example](documentation/images/messaging.png)
 - [Message with name example](documentation/images/messaging_with_name.png)
 
+### Feature Left to Implement
+
+- Feature for users to edit their comments (user story still in to dob column from this project).
+- Feature for users to edit their comments (user storu still in to do column from this project).
+- Admin to be able to approve comments from the front end.
+- Feature for draft post to be stored on the front end with admins been able to log in and view them/publish them.
+- Favicon to add to website, that was last on my to do list before submission but I never got around to it.
+- Implement custom 404 page, that was last on my to do list before submission but I never got around to it.
+- When editing a post the current image doesn't show, I would like to fix this.
+- Profile page for user, with menu items stored withing the profile.
+- Special menu bar for the admin to manage posts/carry out admin functions.
+- Add javascript to messages so they close automatically and look at styling and positioning of messages.
+
 ## Technologies Used
 
-### Languages
+- [HTML](https://html.com/html5/) used as the mark-up language.
+- [CSS](https://en.wikipedia.org/wiki/CSS) for styling.
+- [Python](https://www.python.org/) used as the programming language.
+- [Django](https://www.djangoproject.com/) framework inlluding some of the below frameworks.
+  - [Django Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/) for form styling and helpers.
+  - [Django allauth](https://django-allauth.readthedocs.io/en/latest/) provided templates for sign in, sign up and sign out.
+  - [Crispy Bootstrap 5] template pack for boostrap 5.
+  - [Django summernot] for rich text editor for adding posts.
+- [ElephantSQL](https://www.elephantsql.com/) database used.
+- [Bootstrap 5](https://pypi.org/project/crispy-bootstrap5/) for website styling.
+- [Cloudinary](https://cloudinary.com/) to store static files.
+- [GIT] for version control.
+- [GiHub](https://git-scm.com/) for repository and issues and project board.
+- [Codeanywhere](https://app.codeanywhere.com/) fs IDE.
+- [Heroku](https://www.heroku.com/) for website deployment.
+- [Google Fonts](https://fonts.google.com/) for typogoraphy.
+- [Font Awesome](https://fontawesome.com/) for website icons.
+- [Balsamiq](https://balsamiq.com/) for mobile wireframes.
+- [Excalidraw](https://excalidraw.com/) for desktop wireframes.
+- [Lucidchart](https://www.lucidchart.com/) for ERD diagram.
+- [Coolors](https://coolors.co/) for colour scheme.
+- [Shutterstock](https://www.shutterstock.com/) for 4 category images on index page.
 
 ## Testing and Validation
 
@@ -146,14 +186,54 @@ Testing documentation can be found at [TESTING.md](TESTING.md)
 
 ## Deployment
 
-### Steps to deploy site using Heroku
+### Deployment with Heroku
+
+- Created an account with Heroku and log in through the [Heroku](https://www.heroku.com/) website.
+- From the dashboard click on the 'New' option and selected 'Create New App.
+- Add in an app name and choose a region and click 'Create app'.
+- Click on the 'Settings' tab and from the 'Config Vars' section click 'Reveal Config Vars'
+- Still in settings click to reveal 'Config Vars' add PORT into the 'KEY' field and 8000 into the 'VALUE' field and click 'Add'.
+  - For my project I also needed to add my database url, secret key and coudinary url in the config vars section.
+- From the buildpacks section click 'Add buildpack'.
+- Go to the 'Deploy' tab and under 'Deployment Method' click on 'GitHub'.
+- From the 'Connect to GitHub' section ensure the correct repository is selected and then search for the repository you want to connect to and click 'Connect'.
+- You can choose an automatic deploy or a manual deploy. I chose a manual deploy.
+- With a manual deploy I made sure the main branch was selected and clicked 'deploy branch'.
+- Once the build is finished there should be a message saying 'Your app was successfully deployed' with a 'View' button.
+- When I click on 'View' this opened the application.
 
 ### Steps to clone site
+
+To create a copy of the repository on your own account, follow the below steps:
+
+- Navigate to [My Repository Page](https://github.com/Lornavav/The-Big-Stream-Theory).
+- Click on 'Fork' up on the top right of the page.
+- There will now be a copy of the original repository in your Github account.
 
 ## Credits
 
 ### Code
 
+- CI codestar blog walkthrough which I heavily followed and the follow up webinar to go with it. Thanks to Matt Rudge for explaining everything at a nice pace.
+- Two repositories shared by my facilitator Paul Thomas which were both a massive help to me.
+  - [Designland](https://designland.herokuapp.com/)
+  - [Cocktail Nerd](https://project4-cocktail-nerd.herokuapp.com/)
+- [Codemy](https://www.youtube.com/playlist?list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi) the blog alkthrough was helpful for categories.
+
 ### Media
 
+- Shutterstock as memtioned about for the 4 category images displayed on the index page. I signed up for a free trial to avail of these.
+- I struggled to find royalty free images of the TV shows I wantes to display so I have linked all images sources below:
+  - [The Bear image]( https://www.gq.com/story/the-bear-chicago)
+  - [Shrinking image]( https://www.joblo.com/shrinking-review)
+  - [The Night Agent](https://www.gq-magazin.de/artikel/gabriel-basso-interview)
+  - [Daisy Jones & the six image](https://www.gq-magazine.co.uk/culture/article/daisy-jones-and-the-six-fleetwood-mac)
+  - [The watcher image](https://www.gq-magazine.co.uk/culture/article/the-watcher-ending-netflix)
+  - [Platonic image](https://www.gq.com/story/seth-rogen-platonic-outfits-interview)
+  - [Only Murders in the Building](https://www.gq.com/story/seth-rogen-platonic-outfits-interview)
+  - [Ted Lasso](https://www.gq.com/story/seth-rogen-platonic-outfits-interview)
+- I used ChatGPT to generate the main content fot the blog posts.
+
 ### Acknowledgements
+
+I would like to thank the guys in my cohort for always being encouraging and sending on great resources. Special thanks to Indrek who helped figure out a couple of issues for this project. Thanks to Dave for listening to me and for all the resources. And to Paul Thomas our wonderful facilitator who always checks in with us and is extremely approachable. Thanks to tutor support who I leaned on for this project more than ever and to student support for being so responsive when I have concerns. Lastly thanks to my mentor Brian O' Hare for always being encouraging and easy to talk to.
