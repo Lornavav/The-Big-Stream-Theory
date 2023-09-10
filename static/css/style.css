@@ -164,3 +164,9 @@ footer a:hover {
     color: #23ce6b;
 }
 
+@media screen and (max-width: 541px) {
+    
+    .navbar-brand {
+        display: none;
+    }
+}
