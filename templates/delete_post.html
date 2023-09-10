@@ -4,15 +4,15 @@
 
 {% if user.is_staff %}
 <div class="container-main-content p-4">
-<h1>Delete Post</h1>
+    <h1>Delete Post</h1>
 
-<p>Are you sure you want to delete {{ post.title}}?</p>
+    <p>Are you sure you want to delete {{ post.title}}?</p>
 
-<form method="POST">
-    {% csrf_token %}
-    <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-outline-dark">Cancel</a>
-    <input type="submit" value="Delete" class="btn btn-danger"></input>
-</form>
+    <form method="POST">
+        {% csrf_token %}
+        <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-outline-dark">Cancel</a>
+        <input type="submit" value="Delete" class="btn btn-danger"></input>
+    </form>
 </div>
 
 {% else %}

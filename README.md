@@ -1,6 +1,6 @@
 # The Big Stream Theory
 
-_I AM RESPONSIVE TO GO HERE_
+![Amm I responsive](documentation/images/am_I-responsive.jpg)
 
 [View live website](https://the-big-stream-theory-92a5f2837220.herokuapp.com/)
 
