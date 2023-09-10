@@ -1,22 +1,21 @@
 {% extends "base.html" %}
 
-{% load static%}
-{% load crispy_forms_tags %}
 
 {% block content %}
 
 {% if user.is_staff %}
 <div class="container-main-content p-4">
-    <form method="POST">
-        {% csrf_token %}
+<h1>Delete Post</h1>
 
-        <p>Are you sure you want to delete <a href="{% url 'article_detail' post.slug %}">{{ post.title }}</a>?
-        </p>
+<p>Are you sure you want to delete {{ post.title}}?</p>
 
-        <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-outline-dark">Nevermind</a>
-        <input type="submit" value="Delete Permanently" class="btn btn-danger"></input>
-    </form>
+<form method="POST">
+    {% csrf_token %}
+    <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-outline-dark">Cancel</a>
+    <input type="submit" value="Delete" class="btn btn-danger"></input>
+</form>
 </div>
+
 {% else %}
 <div class="text-bg-secondary px-4 py-5 text-center">
     <div class="py-5">

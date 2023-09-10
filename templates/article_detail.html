@@ -5,7 +5,7 @@
 {% load crispy_forms_tags %}
 
 <div class="container py-2">
-    <div class="card mb-3">
+    <div class="custom-card card mb-3">
         <img src=" {{ post.featured_image.url }}" class="card-img-top">
         <div class="card-body">
             <h1 class="post-title">{{ post.title }} (<em>{{ post.category }}</em>)</h1>
@@ -21,10 +21,10 @@
                             {% csrf_token %}
                             {% if liked %}
                             <button type="submit" name="likes" value="{{post.slug}}" class="btn-like"><i
-                                    class="fas fa-heart"></i></button>
+                                    class="fa-solid fa-heart"></i></button>
                             {% else %}
                             <button type="submit" name="likes" value="{{post.slug}}" class="btn-like"><i
-                                    class="far fa-heart"></i></button>
+                                    class="fa-regular fa-heart"></i></button>
                             {% endif %}
                         </form>
                         {% else %}
@@ -38,9 +38,11 @@
                     <strong class="text-secondary"><i class="far fa-comments"></i>
                         {{ total_comments }}</strong>
                     {% endwith %}
+                </div> 
+                <div class="staff-buttons text-end pt-3">
                     {% if user.is_staff %}
-                    <span><a href="{% url 'edit_post' post.slug %}">Edit</a></span>
-                    <span><a href="{% url 'delete_post' post.slug %}">Delete</a></span>
+                    <a class="btn btn-outline-danger" href="{% url 'delete_post' post.slug %}"role="button">Delete</a>
+                    <a class="btn btn-outline-info" href="{% url 'edit_post' post.slug %}" role="button">Edit</a>
                     {% endif %}
                 </div>
             </div>
@@ -48,19 +50,19 @@
     </div>
 </div>
 
-<div class="container">
+<div class="comments container pb-3">
     <div class="row">
         <div class="col-lg-6">
             <div class="card">
-                <h3 >Comments</h3>
+                <h3 class="pt-3 ps-3">Comments</h3>
                 <div class="card-body">
                     {% for comment in comments %}
-                    <div class="comments" style="padding: 10px;">
-                        <p class="font-weight-bold">
-                            {{ comment.name }}
-                            <span class="text-muted font-weight-normal">
-                                {{ comment.created_on }}
-                            </span> wrote:
+                    <div style="padding: 10px;">
+                        <p class="comment-auth">
+                            <span>
+                               On {{ comment.created_on }}
+                            </span> 
+                            {{ comment.name }} wrote:
                         </p>
                         {{ comment.body | linebreaks }}
                     </div>
@@ -68,7 +70,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 pb-3">
             <div class="card">
                 <div class="card-body">
                     {% if commented %}
@@ -77,16 +79,18 @@
                     </div>
                     {% else %}
                     {% if user.is_authenticated %}
-                    <h3>Leave a Comment:</h3>
-                    <p>Posting as: {{ user.username }}</p>
-                    <form method="post" style="margin-top: 1.3em;">
+                    <h3>Leave a Comment</h3>
+                    <p class="posting-as">Posting as: {{ user.username }}</p>
+                    <form method="post" id="com-form" style="margin-top: 1.3em;">
                         {{ comment_form | crispy }}
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                        <button type="submit" class="btn btn-outline-success">Submit</button>
                     </form>
                     {% else %}
                     <h3>Login to comment</h3>
-                    <a href="{% url 'account_login' %}"class="comment-submit btn btn-outline-warning mt-2">Login</a>
+                    <div class="text-center">
+                    <a href="{% url 'account_login' %}"class="btn btn-outline-success">Login</a>
+                    </div>
                     {% endif %}
                     {% endif %}
                 </div>

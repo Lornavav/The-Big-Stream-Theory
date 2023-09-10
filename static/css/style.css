@@ -47,6 +47,102 @@ footer {
     background-color: #272d2d;
 }
 
+footer p {
+    color:#23ce6b;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+footer a {
+    color: #A846A0;
+    font-size: 24px;
+}
+
+footer a:hover {
+    color: #f6f8ff
+}
+
+.article-card{
+    background-color: #50514f;
+    color: #f6f8ff;
+
+}
+
+.card-text{
+    color: #f6f8ff;
+}
+
+.post-link{
+    text-decoration: none;
+}
+
+.card-title{
+    color: #23ce6b;
+    font-weight: 600;
+}
+
+.card-text-bottom{
+    color: #23ce6b;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.author{
+    color:#A846A0
+}
+
+.page-link{
+    color: #A846A0;
+    font-weight: bold;
+}
+
+.page-link:hover{
+    color: #50514f;
+}
+
+.card-text-detail{
+    color: #272d2d;
+    font-weight: 600;
+}
+
+.post-title{
+    font-weight: 600;
+    color: #A846A0;
+}
+
+.post-subtitle{
+    color: #23ce6b;
+    font-weight: 600;
+}
+
+.btn-like{
+    font-size: 24px;
+    color: #A846A0;
+}
+
+.fa-comments{
+    font-size: 24px;
+}
+
+.comments h3{
+    color: #23ce6b;
+    font-weight: bold;
+}
+
+.comment-auth{
+    color: #A846A0;
+    font-weight: bold;
+}
+
+.posting-as{
+    color: #A846A0;
+    font-weight: bold;
+}
+
+#com-form{
+    border: none;
+}
+
 .messages {
     border-radius: 15px;
     margin-bottom: 20px;
@@ -59,7 +155,12 @@ footer {
     width: 50%;
 }
 
-.card-img-top {
-    border-top-left-radius: var(--bs-card-inner-border-radius);
-    border-top-right-radius: var(--bs-card-inner-border-radius);
+.sign-up a{
+    text-decoration: none;
+    color: #f6f8ff;
 }
+
+.sign-up a:hover{
+    color: #23ce6b;
+}
+

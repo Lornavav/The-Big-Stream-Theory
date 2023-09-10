@@ -13,7 +13,7 @@
             <div class="row">
                 {% for post in catlist.posts %}
                 <div class="col-md-4">
-                    <div class="card mb-4">
+                    <div class="article-card card mb-4">
                         <div class="card-body">
                             <div class="image-container">
                                 <img class="card-img-top" src=" {{ post.featured_image.url }}">
@@ -26,7 +26,7 @@
                                 <p class="card-text">{{ post.excerpt }}</p>
                             </a>
                             <hr />
-                            <p class="card-text text-muted h6">{{ post.created_on }} <i class="far fa-heart"></i>
+                            <p class="card-text-bottom">{{ post.created_on }} <i class="far fa-heart"></i>
                                 {{post.number_of_likes }}</p>
                         </div>
                     </div>
