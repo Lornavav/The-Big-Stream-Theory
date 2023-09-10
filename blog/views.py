@@ -20,12 +20,12 @@ class PostList(generic.ListView):
     only published posts will appear
     """
     model = Post
-    queryset = Post.objects.filter(
-        status=1).order_by('-created_on')
+    queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'articles.html'
     paginate_by = 6
 
-# Inspiration taken from https://project4-cocktail-nerd.herokuapp.com/ for category work
+
+# Inspiration taken from https://project4-cocktail-nerd.herokuapp.com/
 class CategoryList(generic.ListView):
     """
     View to return all categories created on the back end
@@ -41,7 +41,7 @@ class CategoryList(generic.ListView):
 
 class CatListView(ListView):
     """
-    View to return articles by category when 
+    View to return articles by category when
     user has clicked on a category
     """
 
@@ -55,6 +55,7 @@ class CatListView(ListView):
                 category__name=self.kwargs['category']).filter(status=1)
         }
         return content
+
 
 # Followed codestar CI walkthrough to create this view
 class PostDetail(View):
@@ -140,7 +141,7 @@ def add_article(request):
     """
     submitted = False
     if request.method == 'POST':
-        
+
         form = BlogForm(request.POST, request.FILES)
         if all([form.is_valid()]):
             form = form.save(commit=False)

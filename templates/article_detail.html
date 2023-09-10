@@ -6,7 +6,7 @@
 
 <div class="container py-2">
     <div class="custom-card card mb-3">
-        <img src=" {{ post.featured_image.url }}" class="card-img-top">
+        <img src=" {{ post.featured_image.url }}" alt="Image shown for Tv show that relates to blog post"class="card-img-top">
         <div class="card-body">
             <h1 class="post-title">{{ post.title }} (<em>{{ post.category }}</em>)</h1>
             <p class="cast" class="fw-semibold">Featuring: <em>{{ post.cast }}</em></p>
@@ -38,10 +38,10 @@
                     <strong class="text-secondary"><i class="far fa-comments"></i>
                         {{ total_comments }}</strong>
                     {% endwith %}
-                </div> 
+                </div>
                 <div class="staff-buttons text-end pt-3">
                     {% if user.is_staff %}
-                    <a class="btn btn-outline-danger" href="{% url 'delete_post' post.slug %}"role="button">Delete</a>
+                    <a class="btn btn-outline-danger" href="{% url 'delete_post' post.slug %}" role="button">Delete</a>
                     <a class="btn btn-outline-info" href="{% url 'edit_post' post.slug %}" role="button">Edit</a>
                     {% endif %}
                 </div>
@@ -60,8 +60,8 @@
                     <div style="padding: 10px;">
                         <p class="comment-auth">
                             <span>
-                               On {{ comment.created_on }}
-                            </span> 
+                                On {{ comment.created_on }}
+                            </span>
                             {{ comment.name }} wrote:
                         </p>
                         {{ comment.body | linebreaks }}
@@ -89,7 +89,7 @@
                     {% else %}
                     <h3>Login to comment</h3>
                     <div class="text-center">
-                    <a href="{% url 'account_login' %}"class="btn btn-outline-success">Login</a>
+                        <a href="{% url 'account_login' %}" class="btn btn-outline-success">Login</a>
                     </div>
                     {% endif %}
                     {% endif %}

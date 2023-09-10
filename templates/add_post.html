@@ -1,20 +1,12 @@
-{% extends "base.html" %}
-
-{% load crispy_forms_tags %}
-
-
-{% block content %}
-
-{% if user.is_staff %}
-<div class="container-main-content p-4">
-    {% load cloudinary %}
-    <div class="form-group">
-        <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            {% crispy form %}
-            <input type="submit" value="Submit" class="btn btn-success">
-        </form>
-    </div>
+{% extends "base.html" %} {% load crispy_forms_tags %} {% block content %} {% if
+user.is_staff %}
+<div class="container col-lg-6 p-4">
+  {% load cloudinary %}
+  <div class="form-group">
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %} {% crispy form %}
+      <input type="submit" value="Submit" class="btn btn-success" />
+    </form>
+  </div>
 </div>
-{% endif %}
-{% endblock content %}
+{% endif %} {% endblock content %}

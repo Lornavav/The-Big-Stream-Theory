@@ -12,7 +12,9 @@
               <div class="image-container">
                 <img
                   class="card-img-top"
+                  alt="Shows image related to TV blog post"
                   src=" {{ post.featured_image.url }}"
+                  alt="Image from featured show displayed here"
                 />
                 <div class="image-flash">
                   <p class="author">Author: {{ post.author }}</p>
@@ -24,8 +26,8 @@
               </a>
               <hr />
               <p class="card-text-bottom">
-                {{ post.created_on }} <i class="far fa-heart"></i>{{
-                post.number_of_likes }}
+                {{ post.created_on }}
+                <i class="far fa-heart"></i>{{post.number_of_likes }}
               </p>
             </div>
           </div>
