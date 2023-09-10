@@ -79,19 +79,19 @@ There are four  states of the nav bar
 
 The category cards are displayed on the index.html page. These will help the user navigate to the content they want to see. All cards are clickable and will take the user to the blog post of that category.
 
-* [Category cards index page](documentation/images/category_cards.png)
+![Category Cards](documentation/images/category_cards.png)
 
 ### Footer
 
 The footer can be viewed from every webpage throughout the side. It contains a contact email for users to get in touch. The social media links all redirect to the relative login pages and these pages will open in a new tab.
 
-* [Footer](documentation/images/footer.png)
+![Footer](documentation/images/footer.png)
 
 ### Articles Page
 
 The articles page is where a user can view all articles contained on the website. The page will paginate after 6 articles. The user can click on any article and it will bring them to a page to see further details of the article.
 
-* [Articles page](documentation/images/articles_page.png)
+![Articles page](documentation/images/articles_page.png)
 
 ### Article Detail Page
 
@@ -104,35 +104,38 @@ The article detail page shows further details on a single article post. This is 
 
 The user will be giving the option to register on the website if they are not logged in. This option will appear in the navbar. The user will be directed to a sign up form where they fill in a username, optional email adress and a password.
 
-* [Resgister form](documentation/images/register.png)
+![Resgister form](documentation/images/register.png)
 
 ### Sign In
 
 Once a user is registered on the website they can use the sign in option to sign into the website.
 
-* [Sign In form](documentation/images/sign_in.png)
+![Sign In form](documentation/images/sign_in.png)
 
 ### Add Post
 
 Staff have access to add an article post on the front end. When they sign into the website using a staff account they will see the option to add post. Here they can add posts and publish them or leave them as drafts. If they publish the post they will appear straight away on the articles page. If a post is saved as a draft this will not appear anywhere on the website only on the admin panel.
 
-* [Add post](documentation/images/add_post.png)
+![Add post](documentation/images/add_post.png)
 
 ### Edit Post
 
 Staff have access to edit posts from the front end. The option to edit a post will appear on the articles details page when a staff member is logged into the site.
 
-* [Edit post](documentation/images/edit_post.png)
+![Edit post](documentation/images/edit_post.png)
   
 ### Delete Post
 
 Staff have access to delete posts from the front end. The option to delete a post will appear on the articles details page when a staff member is logged into the site.
 
-* [Delete post](documentation/images/delete_article.png)
+![Delete post](documentation/images/delete_article.png)
 
 ### Messages
 
 Alert messages were implmented with the help of Django messages and message tags. 
+
+* [Message example](documentation/images/messaging.png)
+* [Message with name example](documentation/images/messaging_with_name.png)
 
 ## Technologies Used
 
